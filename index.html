@@ -3,21 +3,900 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      color: #000;
-      font-family: Arial, sans-serif;
-    }
-  </style>
+  <title>Café & Prosa | Cafeteria Artesanal & Grãos Especiais</title>
+  <meta name="description" content="Café & Prosa: cafeteria artesanal em São Paulo. Cafés especiais selecionados, métodos filtrados exclusivos, confeitaria de fermentação natural e ambiente acolhedor.">
+  <meta name="keywords" content="café especial, cafeteria artesanal, espresso, latte art, brunch, doces artesanais, café são paulo">
+  <meta name="author" content="Café & Prosa">
+  
+  <!-- Favicon com ícone de xícara SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c68a4c'><path d='M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z'/><line x1='6' y1='1' x2='6' y2='4' stroke='%23c68a4c' stroke-width='2'/><line x1='10' y1='1' x2='10' y2='4' stroke='%23c68a4c' stroke-width='2'/><line x1='14' y1='1' x2='14' y2='4' stroke='%23c68a4c' stroke-width='2'/></svg>">
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  hello world
+
+  <!-- ==========================================================================
+       Cabeçalho (Header)
+       ========================================================================== -->
+  <header class="header" id="header" role="banner">
+    <div class="container header-container">
+      <a href="#inicio" class="brand-logo" aria-label="Café & Prosa - Página Inicial">
+        <div class="brand-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+            <line x1="6" y1="2" x2="6" y2="4"></line>
+            <line x1="10" y1="2" x2="10" y2="4"></line>
+            <line x1="14" y1="2" x2="14" y2="4"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Café & Prosa</span>
+          <span class="brand-tagline">Cafeteria Artesanal</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação -->
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Navegação Principal">
+        <a href="#sobre" class="nav-link">Sobre Nós</a>
+        <a href="#cardapio" class="nav-link">Cardápio</a>
+        <a href="#horarios" class="nav-link">Horários & Localização</a>
+        <a href="#contato" class="nav-link">Contato</a>
+        <a href="#contato" class="btn btn-primary btn-sm" style="margin-left: 0.5rem;">Reservar Mesa</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Botão Menu Mobile Hambúrguer -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Seção Principal (Hero)
+       ========================================================================== -->
+  <section class="hero-section" id="inicio" aria-labelledby="hero-heading">
+    <div class="hero-background-wrapper">
+      <img src="assets/images/hero.jpg" alt="Mesa de madeira aconchegante com xícara de café artesanal fumegante e grãos de café" class="hero-bg-img" loading="eager">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>Torra Fresca Artesanal da Semana</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-heading">
+        O verdadeiro sabor do café especial <span class="highlight">no seu dia.</span>
+      </h1>
+
+      <p class="hero-description">
+        Grãos selecionados com pontuação 84+, extraídos nos melhores métodos artesanais, acompanhados de pães e doces de fermentação natural. Um espaço para desacelerar e colecionar boas conversas.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#cardapio" class="btn btn-primary" id="hero-cta-menu">
+          <span>Ver Cardápio</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#sobre" class="btn btn-secondary">
+          <span>Conheça Nossa Casa</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Arábica Selecionado</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">Métodos de Extração</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">88+</span>
+          <span class="stat-label">Pontos SCA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Seção "Sobre Nós"
+       ========================================================================== -->
+  <section class="about-section" id="sobre" aria-labelledby="sobre-heading">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            Nossa Essência
+          </span>
+          <h2 class="section-title" id="sobre-heading">Tradição familiar, paixão por café e apreço pela boa prosa.</h2>
+          
+          <p class="about-text">
+            Nascido da paixão por cafés de origem e pela tradição de reunir pessoas queridas em volta da mesa, o <strong>Café & Prosa</strong> é um refúgio acolhedor no coração da cidade. Nossa história começou com o sonho de resgatar o ritmo calmo dos encontros, servindo xícaras preparadas com maestria e ingredientes artesanais de produtores locais.
+          </p>
+          <p class="about-text">
+            Cada lote de café é selecionado a dedo em fazendas sustentáveis da Serra da Mantiqueira e do Cerrado Mineiro. Nossa cozinha produz fornadas diárias de pães de fermentação lenta e confeitaria afetuosa, criando a harmonia perfeita entre o aroma de café recém-moído e o calor de uma conversa agradável.
+          </p>
+
+          <div class="about-features">
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 1 1 0 8h-1"></path>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h4>Grãos de Origem Nobre</h4>
+                <p>100% Arábica de microlotes com pontuação especial e rastreabilidade total.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h4>Confeitaria Artesanal</h4>
+                <p>Croissants folhados na manteiga pura e bolos caseiros sem conservantes.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h4>Espaço & Livros</h4>
+                <p>Biblioteca colaborativa, luz suave e poltronas perfeitas para leitura e trabalho.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h4>Wi-Fi & Conexões</h4>
+                <p>Ambiente pet-friendly com internet de alta velocidade e tomadas acessíveis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visuals">
+          <div class="about-image-main-wrapper">
+            <img src="assets/images/barista.jpg" alt="Barista extraindo café artesanal com método filtrado V60 em balcão de madeira" class="about-image-main" loading="lazy">
+          </div>
+          <div class="about-floating-card">
+            <div class="floating-icon-stamp">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 8c-3.3 0-6 2.7-6 6v4h12v-4c0-3.3-2.7-6-6-6z"></path>
+                <path d="M12 2v6"></path>
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <strong>Torrefação Semanal</strong>
+              <span>Garantia de frescor e aromas intensos em cada xícara</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Seção "Cardápio" (Ponto Central do Site)
+       ========================================================================== -->
+  <section class="menu-section" id="cardapio" aria-labelledby="cardapio-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 1 1 0 8h-1"></path>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+          </svg>
+          Feito à Mão Diariamente
+        </span>
+        <h2 class="section-title" id="cardapio-heading">Nosso Cardápio Artesanal</h2>
+        <p class="section-subtitle">
+          Receitas autorais e clássicos preparados com café especial 100% arábica, leites frescos e acompanhamentos preparados com afeto.
+        </p>
+      </div>
+
+      <!-- Barra de Filtros Interativos -->
+      <div class="menu-filter-bar" role="tablist" aria-label="Categorias do cardápio">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+          <span>Todos os Itens</span>
+        </button>
+        <button class="filter-btn" data-filter="quentes" role="tab" aria-selected="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 1 1 0 8h-1"></path>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+          </svg>
+          <span>Cafés & Bebidas Quentes</span>
+        </button>
+        <button class="filter-btn" data-filter="gelados" role="tab" aria-selected="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M2 12h20"></path>
+            <path d="m4.93 4.93 14.14 14.14M19.07 4.93 4.93 19.07"></path>
+          </svg>
+          <span>Bebidas Geladas</span>
+        </button>
+        <button class="filter-btn" data-filter="comidas" role="tab" aria-selected="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m4.93 4.93 4.24 4.24"></path>
+            <path d="m14.83 9.17 4.24-4.24"></path>
+            <path d="m14.83 14.83 4.24 4.24"></path>
+            <path d="m9.17 14.83-4.24 4.24"></path>
+          </svg>
+          <span>Comidas & Doces</span>
+        </button>
+      </div>
+
+      <!-- Grade de Itens do Cardápio -->
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- Item 1: Cappuccino Tradicional Prosa (Destaque: Mais Pedido) -->
+        <article class="menu-card featured-card" data-category="quentes">
+          <div class="menu-badge badge-bestseller">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Mais Pedido
+          </div>
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Cappuccino da Casa Café & Prosa</h3>
+            <span class="menu-item-price">R$ 16,90</span>
+          </div>
+          <p class="menu-item-desc">
+            Dose dupla de espresso especial, leite vaporizado com textura aveludada, toque de cacau 70% da Bahia e suave canela do Ceilão moída na hora.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">180ml</span>
+              <span class="item-tag">Latte Art</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Cappuccino da Casa">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 2: Filtrado V60 Microlote (Destaque: Recomendação do Barista) -->
+        <article class="menu-card featured-card" data-category="quentes">
+          <div class="menu-badge badge-chef">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+            Recomendação do Barista
+          </div>
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Filtrado Especial V60 (Microlote)</h3>
+            <span class="menu-item-price">R$ 18,50</span>
+          </div>
+          <p class="menu-item-desc">
+            Extração manual no método Hario V60 com grãos premiados do Sul de Minas. Notas aromáticas de caramelo, frutas amarelas e acidez cítrica equilibrada.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">250ml</span>
+              <span class="item-tag">86 Pontos SCA</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Filtrado Especial V60">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 3: Espresso Clássico -->
+        <article class="menu-card" data-category="quentes">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Espresso Clássico Duplo</h3>
+            <span class="menu-item-price">R$ 11,00</span>
+          </div>
+          <p class="menu-item-desc">
+            Extraído na medida ideal com crema dourada densa e notas amendoadas intensas. Acompanha copinho d'água gaseificada e biscoitinho artesanal.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">60ml</span>
+              <span class="item-tag">Intensidade 8</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Espresso Clássico Duplo">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 4: Flat White Cremoso -->
+        <article class="menu-card" data-category="quentes">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Flat White Aveludado</h3>
+            <span class="menu-item-price">R$ 15,50</span>
+          </div>
+          <p class="menu-item-desc">
+            Ristretto duplo encorpado envolto por uma microespuma sedosa de leite integral ou vegetal de aveia. Sabor marcante com finalização amanteigada.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">160ml</span>
+              <span class="item-tag">Opção Vegana</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Flat White">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 5: Cold Brew Cítrico (Gelado) -->
+        <article class="menu-card" data-category="gelados">
+          <div class="menu-badge badge-chef">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Refrescante
+          </div>
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Cold Brew Infusion Cítrico</h3>
+            <span class="menu-item-price">R$ 17,90</span>
+          </div>
+          <p class="menu-item-desc">
+            Café infusionado a frio por 18 horas, servido com gelo translúcido, fatia de laranja bahia desidratada e leve xarope artesanal de flor de laranjeira.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">300ml</span>
+              <span class="item-tag">Gelado</span>
+              <span class="item-tag">Sem Açúcar</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Cold Brew">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 6: Iced Caramel Macchiato -->
+        <article class="menu-card" data-category="gelados">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Iced Caramel Macchiato</h3>
+            <span class="menu-item-price">R$ 19,00</span>
+          </div>
+          <p class="menu-item-desc">
+            Leite gelado batido, caramelo salgado produzido no fogão da casa, espresso duplo tirado sobre o gelo e chantilly fresco batido na hora.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">350ml</span>
+              <span class="item-tag">Caramelo Artesanal</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Iced Caramel">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 7: Croissant Francês na Manteiga (Comida - Destaque) -->
+        <article class="menu-card featured-card" data-category="comidas">
+          <div class="menu-badge badge-bestseller">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Mais Pedido
+          </div>
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Croissant Francês Tradicional</h3>
+            <span class="menu-item-price">R$ 16,50</span>
+          </div>
+          <p class="menu-item-desc">
+            Massa folhada artesanal com pura manteiga da serra, crocante por fora e alveolada por dentro. Acompanha geleia artesanal de frutas vermelhas.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">Fornada Diária</span>
+              <span class="item-tag">Fermentação Lenta</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Croissant Francês">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 8: Cheesecake Artesanal de Frutas Vermelhas (Comida) -->
+        <article class="menu-card" data-category="comidas">
+          <div class="menu-badge badge-chef">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+            Recomendação do Chef
+          </div>
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Cheesecake New York com Frutas</h3>
+            <span class="menu-item-price">R$ 22,00</span>
+          </div>
+          <p class="menu-item-desc">
+            Base crocante de amêndoas e biscoito de especiarias, creme sedoso de queijo suave e calda rústica de mirtilos, amoras e framboesas frescas.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">Fatia Generosa</span>
+              <span class="item-tag">Calda Orgânica</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Cheesecake">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+        <!-- Item 9: Tostada de Queijo Canastra e Alecrim (Comida) -->
+        <article class="menu-card" data-category="comidas">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Tostada de Queijo Canastra & Mel</h3>
+            <span class="menu-item-price">R$ 24,00</span>
+          </div>
+          <p class="menu-item-desc">
+            Pão de fermentação natural tostado no azeite extravirgem, generosa camada de queijo Canastra curado derretido, castanhas e fio de mel silvestre.
+          </p>
+          <div class="menu-card-footer">
+            <div class="menu-tags">
+              <span class="item-tag">Sourdough</span>
+              <span class="item-tag">Produtor Local</span>
+            </div>
+            <button class="order-btn-pill" aria-label="Pedir Tostada de Canastra">
+              + Escolher
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Galeria Visual Aconchegante do Cardápio & Espaço -->
+      <div class="menu-gallery-preview">
+        <div class="gallery-card">
+          <img src="assets/images/pastries.jpg" alt="Doces finos, croissants dourados e cheesecake no Café & Prosa" loading="lazy">
+          <div class="gallery-card-caption">
+            <h4>Confeitaria Fresca & Fornada do Dia</h4>
+            <p>Receitas preparadas todas as manhãs com farinhas selecionadas e ovos caipiras.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="assets/images/interior.jpg" alt="Interior aconchegante do Café & Prosa com livros e iluminação intimista" loading="lazy">
+          <div class="gallery-card-caption">
+            <h4>O Cenário da Sua Próxima Prosa</h4>
+            <p>Mesas espaçosas, estantes repletas de histórias e trilha sonora suave.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Seção "Horários e Localização"
+       ========================================================================== -->
+  <section class="location-section" id="horarios" aria-labelledby="horarios-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag olive">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Venha nos Visitar
+        </span>
+        <h2 class="section-title" id="horarios-heading">Horários & Localização</h2>
+        <p class="section-subtitle">
+          Estamos prontos para te receber com a mesa posta e aquele cheirinho inconfundível de café recém-extraído.
+        </p>
+      </div>
+
+      <div class="location-grid">
+        <!-- Cartão com Informações e Horários -->
+        <div class="location-info-card">
+          <div>
+            <!-- Bloco de Horários -->
+            <div class="info-block">
+              <div class="info-block-header">
+                <div class="info-icon-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Horário de Funcionamento</h3>
+                  <div class="status-pill open" id="storeStatusBadge">● Aberto Agora (fecha às 20h)</div>
+                </div>
+              </div>
+
+              <div class="hours-schedule">
+                <div class="schedule-row">
+                  <span class="schedule-day">Terça a Sexta-feira</span>
+                  <span class="schedule-time">08h00 às 20h00</span>
+                </div>
+                <div class="schedule-row">
+                  <span class="schedule-day">Sábados, Domingos & Feriados</span>
+                  <span class="schedule-time">08h00 às 20h00</span>
+                </div>
+                <div class="schedule-row" style="border-bottom: none; opacity: 0.7;">
+                  <span class="schedule-day">Segundas-feiras</span>
+                  <span class="schedule-time" style="color: #8c7365;">Fechado (Dia de Torra & Seleção)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloco de Endereço -->
+            <div class="info-block">
+              <div class="info-block-header">
+                <div class="info-icon-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Nosso Endereço</h3>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted);">Fácil acesso no charmoso bairro de Pinheiros</p>
+                </div>
+              </div>
+
+              <div class="address-details">
+                <p>
+                  <strong>Café & Prosa Cafeteria Artesanal</strong><br>
+                  Alameda dos Ipês, 452 - Jardins / Pinheiros<br>
+                  São Paulo - SP, CEP 01423-000<br>
+                  (A 300 metros da estação de metrô Fradique Coutinho)
+                </p>
+              </div>
+
+              <div class="amenities-badges">
+                <span class="amenity-chip">🐾 Pet Friendly</span>
+                <span class="amenity-chip">📶 Wi-Fi 500MB Grátis</span>
+                <span class="amenity-chip">🔌 Tomadas nas Mesas</span>
+                <span class="amenity-chip">🚗 Estacionamento Conveniado</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              <span>Abrir no Google Maps</span>
+            </a>
+            <a href="#contato" class="btn btn-primary btn-sm">
+              <span>Fazer uma Reserva</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mapa Incorporado (Google Maps Embed) -->
+        <div class="map-wrapper">
+          <iframe 
+            class="map-embed"
+            title="Localização do Café & Prosa no Mapa"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197576596167!2d-46.68538792374945!3d-23.561343961567115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce579f187ec98f%3A0xe104ff47db1887e0!2sRua%20dos%20Pinheiros%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="map-banner">
+            <div class="map-banner-text">
+              <strong>Café & Prosa - Jardins & Pinheiros</strong>
+              <span>Alameda dos Ipês, 452 • Terça a Domingo: 08h às 20h</span>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-caramel); font-weight: 600; font-size: 0.85rem;">
+              Rotas →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Seção "Contato / Reserva"
+       ========================================================================== -->
+  <section class="contact-section" id="contato" aria-labelledby="contato-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Fale Conosco
+        </span>
+        <h2 class="section-title" id="contato-heading">Entre em Contato ou Reserve sua Mesa</h2>
+        <p class="section-subtitle">
+          Seja para tirar dúvidas, agendar um café especial com amigos ou organizar um encontro tranquilo, nossa equipe terá prazer em lhe responder.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Informações de Contato Direto -->
+        <div class="contact-callout">
+          <div class="contact-callout-card">
+            <h3>Uma boa conversa começa aqui.</h3>
+            <p>
+              Aceitamos reservas para mesas individuais de estudo/trabalho, pequenos grupos e comemorações intimistas. Entre em contato também pelos nossos canais diretos:
+            </p>
+
+            <div class="direct-channels">
+              <div class="channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <small>Telefone & WhatsApp</small>
+                  <span>(11) 98765-4321</span>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <small>E-mail Geral</small>
+                  <span>contato@cafeeprosa.com.br</span>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <small>Instagram Oficial</small>
+                  <span>@cafeeprosa.artesanal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário com Validação Interativa -->
+        <div class="contact-form-card">
+          <form id="contactForm" novalidate>
+            <!-- Campo Nome Completo (Obrigatório) -->
+            <div class="form-group">
+              <label for="userName" class="form-label">
+                Nome Completo <span class="required-star">*</span>
+              </label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  id="userName" 
+                  name="nome" 
+                  class="form-input" 
+                  placeholder="Ex: Clara Mendes" 
+                  required
+                  autocomplete="name">
+              </div>
+              <span class="error-feedback" id="userNameError">Por favor, informe seu nome completo.</span>
+            </div>
+
+            <!-- Campo E-mail ou Telefone (Obrigatório) -->
+            <div class="form-group">
+              <label for="userContact" class="form-label">
+                E-mail ou Telefone / WhatsApp <span class="required-star">*</span>
+              </label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  id="userContact" 
+                  name="contato" 
+                  class="form-input" 
+                  placeholder="Ex: clara@email.com ou (11) 98765-4321" 
+                  required
+                  autocomplete="email">
+              </div>
+              <span class="error-feedback" id="userContactError">Informe um e-mail válido ou telefone de contato.</span>
+            </div>
+
+            <!-- Seleção de Assunto / Tipo de Atendimento -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="userService" class="form-label">Motivo do Contato</label>
+                <select id="userService" name="servico" class="form-select" style="padding-left: 1rem;">
+                  <option value="reserva">Reserva de Mesa</option>
+                  <option value="duvida">Dúvidas sobre o Cardápio</option>
+                  <option value="evento">Eventos & Parcerias</option>
+                  <option value="outro">Outro Assunto</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="userDate" class="form-label">Data / Horário Sugerido</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" style="left: 0.9rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </span>
+                  <input 
+                    type="text" 
+                    id="userDate" 
+                    name="data_horario" 
+                    class="form-input" 
+                    placeholder="Ex: Sexta às 16h (Opcional)">
+                </div>
+              </div>
+            </div>
+
+            <!-- Mensagem ou Detalhes da Reserva (Obrigatório) -->
+            <div class="form-group">
+              <label for="userMessage" class="form-label">
+                Mensagem ou Detalhes da Reserva <span class="required-star">*</span>
+              </label>
+              <textarea 
+                id="userMessage" 
+                name="mensagem" 
+                class="form-textarea" 
+                placeholder="Conte-nos quantas pessoas estarão com você ou como podemos lhe ajudar..." 
+                required></textarea>
+              <span class="error-feedback" id="userMessageError">Por favor, escreva uma mensagem ou os detalhes de sua solicitação.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn" id="submitContactBtn">
+              <span>Enviar Mensagem / Solicitar Reserva</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Rodapé (Footer)
+       ========================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Logo e Apresentação -->
+        <div class="footer-brand">
+          <a href="#inicio" class="brand-logo" aria-label="Café & Prosa">
+            <div class="brand-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">Café & Prosa</span>
+              <span class="brand-tagline">Cafeteria Artesanal</span>
+            </div>
+          </a>
+          <p>
+            O refúgio perfeito em São Paulo para apreciadores de grãos selecionados, receitas artesanais de família e conversas memoráveis.
+          </p>
+          <div class="social-links" aria-label="Redes Sociais">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Acompanhe nosso Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Fale pelo WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Visite nosso Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links Rápidos -->
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="#inicio" class="footer-link">Início</a></li>
+            <li><a href="#sobre" class="footer-link">Sobre Nós</a></li>
+            <li><a href="#cardapio" class="footer-link">Cardápio Completo</a></li>
+            <li><a href="#horarios" class="footer-link">Horários & Localização</a></li>
+            <li><a href="#contato" class="footer-link">Reservas & Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Horários no Rodapé -->
+        <div class="footer-col footer-hours">
+          <h4>Atendimento</h4>
+          <p><strong>Terça a Domingo:</strong><br>08h00 às 20h00</p>
+          <p><strong>Segundas:</strong><br>Fechado (Torrefação)</p>
+          <p style="color: var(--color-caramel); font-size: 0.8rem; margin-top: 0.5rem;">Cozinha aberta até às 19h30</p>
+        </div>
+
+        <!-- Contato Rápido -->
+        <div class="footer-col footer-contact">
+          <h4>Venha Bater um Papo</h4>
+          <p>Alameda dos Ipês, 452<br>Jardins / Pinheiros - SP</p>
+          <p><strong>WhatsApp:</strong> (11) 98765-4321</p>
+          <p><strong>E-mail:</strong> contato@cafeeprosa.com.br</p>
+        </div>
+      </div>
+
+      <!-- Copyright e Voltar ao Topo -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Café & Prosa - Todos os direitos reservados.</p>
+        <a href="#inicio" class="back-to-top" aria-label="Voltar ao início da página">
+          <span>Voltar ao topo</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Interativos -->
+  <script src="script.js"></script>
 </body>
 </html>
