@@ -1,63 +1,68 @@
 /* ==========================================================================
-   Café & Prosa - Design System & Stylesheet
-   Estilo: Moderno, Aconchegante, Elegante e Artesanal
+   Café & Prosa - Folha de Estilos Principal (CSS3)
+   Guia para Iniciantes:
+   - Todas as cores principais estão centralizadas nas variáveis (:root) abaixo.
+   - Para mudar a cor do site, basta alterar os códigos hexadecimais no bloco :root!
    ========================================================================== */
 
 :root {
-  /* Paleta de Cores Inspirada em Café Especial */
-  --color-roast-dark: #1b120c;
-  --color-roast-deep: #291c14;
-  --color-roast-medium: #4a3325;
-  --color-roast-light: #72523b;
+  /* -------------------------------------------------------------------------
+     PALETA DE CORES (Inspirada em Café Especial & Grãos Artesanais)
+     ------------------------------------------------------------------------- */
+  --color-roast-dark: #1b120c;       /* Marrom café expresso muito escuro */
+  --color-roast-deep: #291c14;       /* Marrom café escuro intermediário */
+  --color-roast-medium: #4a3325;     /* Marrom suave */
+  --color-roast-light: #72523b;      /* Marrom claro / canela */
   
-  --color-caramel: #c68a4c;
-  --color-caramel-hover: #b3773a;
-  --color-caramel-light: #f4e8dc;
+  --color-caramel: #c68a4c;          /* Caramelo dourado (cor principal de destaque) */
+  --color-caramel-hover: #b3773a;    /* Caramelo mais escuro para efeito hover */
+  --color-caramel-light: #f4e8dc;    /* Fundo suave caramelo claro */
   
-  --color-cream-bg: #faf6f0;
-  --color-cream-surface: #ffffff;
-  --color-cream-muted: #f2ece3;
+  --color-cream-bg: #faf6f0;         /* Creme clarinho aconchegante de fundo geral */
+  --color-cream-surface: #ffffff;    /* Branco puro para cartões e blocos */
+  --color-cream-muted: #f2ece3;      /* Bege suave para separadores */
   --color-sand: #e6dcce;
 
-  --color-olive: #4f634b;
-  --color-olive-light: #e8ede6;
+  --color-olive: #4f634b;            /* Verde oliva elegante para selos e frescor */
+  --color-olive-light: #e8ede6;      /* Fundo suave do verde oliva */
   
-  --color-text-main: #221b18;
-  --color-text-muted: #6e6159;
-  --color-text-light: #9c8e84;
-  --color-text-inverse: #faf6f0;
+  --color-text-main: #221b18;        /* Cor do texto principal (fácil de ler) */
+  --color-text-muted: #6e6159;       /* Cor de parágrafos secundários */
+  --color-text-light: #9c8e84;       /* Cor de placeholders e legendas */
+  --color-text-inverse: #faf6f0;     /* Texto claro em fundos escuros */
 
   --color-border: rgba(74, 51, 37, 0.12);
   --color-border-subtle: rgba(74, 51, 37, 0.06);
 
-  /* Sombras e Elevações */
+  /* Sombras e Elevações para profundidade moderna */
   --shadow-sm: 0 2px 8px rgba(33, 21, 14, 0.05);
   --shadow-md: 0 8px 24px rgba(33, 21, 14, 0.08);
   --shadow-lg: 0 16px 40px rgba(33, 21, 14, 0.12);
   --shadow-card: 0 10px 30px rgba(37, 23, 16, 0.06);
-  --shadow-glow: 0 0 25px rgba(198, 138, 76, 0.35);
 
-  /* Tipografia */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Tipografias */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Transições e Curvas */
+  /* Transições suaves */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Borda arredondada */
+  /* Arredondamento de bordas */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-pill: 9999px;
   
-  /* Layout */
+  /* Dimensões */
   --max-width: 1200px;
   --header-height: 84px;
 }
 
-/* Reset Global */
+/* -------------------------------------------------------------------------
+   RESET BÁSICO & CONFIGURAÇÕES GERAIS
+   ------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -65,10 +70,9 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Faz os cliques nos links rolarem suavemente até a seção */
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -100,7 +104,7 @@ ul {
   list-style: none;
 }
 
-/* Contêiner Geral */
+/* Contêiner centralizador de conteúdo */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -108,7 +112,9 @@ ul {
   padding: 0 1.5rem;
 }
 
-/* Estilo de Tipografia Global */
+/* -------------------------------------------------------------------------
+   COMPONENTES DE TÍTULOS E ETIQUETAS
+   ------------------------------------------------------------------------- */
 .section-tag {
   display: inline-flex;
   align-items: center;
@@ -153,9 +159,9 @@ ul {
   margin-bottom: 3.5rem;
 }
 
-/* ==========================================================================
-   Botões e Componentes UI
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   BOTÕES REUTILIZÁVEIS (.btn)
+   ------------------------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -169,8 +175,6 @@ ul {
   cursor: pointer;
   transition: all var(--transition-normal);
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
 }
 
 .btn-primary {
@@ -216,9 +220,9 @@ ul {
   font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   Header & Navegação
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   1. CABEÇALHO (HEADER) & MENU
+   ------------------------------------------------------------------------- */
 .header {
   position: fixed;
   top: 0;
@@ -227,7 +231,7 @@ ul {
   height: var(--header-height);
   z-index: 1000;
   transition: all var(--transition-normal);
-  background: rgba(27, 18, 12, 0.2);
+  background: rgba(27, 18, 12, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -266,11 +270,6 @@ ul {
   justify-content: center;
   box-shadow: 0 4px 12px rgba(198, 138, 76, 0.3);
   color: #ffffff;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
 }
 
 .brand-title {
@@ -348,9 +347,9 @@ ul {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* ==========================================================================
-   Hero Section
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   2. SEÇÃO HERO (BANNER PRINCIPAL)
+   ------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -376,8 +375,7 @@ ul {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.03);
-  transition: transform 12s ease-out;
+  transform: scale(1.02);
 }
 
 .hero-overlay {
@@ -491,9 +489,9 @@ ul {
   letter-spacing: 0.05em;
 }
 
-/* ==========================================================================
-   Seção "Sobre Nós"
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   3. SEÇÃO SOBRE NÓS
+   ------------------------------------------------------------------------- */
 .about-section {
   padding: 7rem 0;
   background-color: var(--color-cream-bg);
@@ -631,9 +629,9 @@ ul {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
-   Seção "Cardápio" (Ponto Central)
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   4. SEÇÃO CARDÁPIO (PONTO CENTRAL)
+   ------------------------------------------------------------------------- */
 .menu-section {
   padding: 7rem 0;
   background-color: #ffffff;
@@ -858,9 +856,9 @@ ul {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ==========================================================================
-   Seção "Horários & Localização"
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   5. SEÇÃO HORÁRIOS & LOCALIZAÇÃO
+   ------------------------------------------------------------------------- */
 .location-section {
   padding: 7rem 0;
   background-color: var(--color-cream-bg);
@@ -1027,9 +1025,9 @@ ul {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ==========================================================================
-   Seção "Contato / Reserva"
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   6. SEÇÃO CONTATO / RESERVA
+   ------------------------------------------------------------------------- */
 .contact-section {
   padding: 7rem 0;
   background: linear-gradient(180deg, #ffffff 0%, var(--color-cream-bg) 100%);
@@ -1120,7 +1118,7 @@ ul {
   color: #ffffff;
 }
 
-/* Formulário de Contato / Reserva */
+/* Formulário de Contato */
 .contact-form-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
@@ -1218,9 +1216,9 @@ ul {
   margin-top: 0.5rem;
 }
 
-/* ==========================================================================
-   Rodapé (Footer)
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   7. RODAPÉ (FOOTER)
+   ------------------------------------------------------------------------- */
 .footer {
   background-color: var(--color-roast-dark);
   color: #ffffff;
@@ -1346,9 +1344,9 @@ ul {
   color: #ffffff;
 }
 
-/* ==========================================================================
-   Toast Notification & Modal
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   SISTEMA DE TOAST NOTIFICATIONS (MENSAGENS FLUTUANTES)
+   ------------------------------------------------------------------------- */
 .toast-container {
   position: fixed;
   bottom: 2rem;
@@ -1406,9 +1404,9 @@ ul {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
-   Responsividade (Mobile & Tablet)
-   ========================================================================== */
+/* -------------------------------------------------------------------------
+   RESPONSIVIDADE (TABLETS E SMARTPHONES)
+   ------------------------------------------------------------------------- */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -1444,10 +1442,12 @@ ul {
     --header-height: 72px;
   }
 
+  /* Exibe o botão hambúrguer no celular */
   .menu-toggle {
     display: flex;
   }
 
+  /* Menu dropdown deslizante no mobile */
   .nav-menu {
     position: fixed;
     top: var(--header-height);
@@ -1478,6 +1478,11 @@ ul {
     font-size: 1.15rem;
     padding: 0.65rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-cta-btn {
+    width: 100%;
+    text-align: center;
   }
 
   .hero-stats {

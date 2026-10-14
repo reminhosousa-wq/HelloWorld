@@ -1,25 +1,38 @@
 /**
- * Café & Prosa - Interactive Scripts
- * Recursos: Menu responsivo, Filtro de Cardápio, Validação de Formulário,
- * Status de funcionamento em tempo real e notificações Toast.
+ * Café & Prosa - Script de Interatividade (JavaScript)
+ * 
+ * GUIA PARA INICIANTES:
+ * Este arquivo adiciona vida e interatividade à página:
+ * 1. Abre e fecha o menu no celular (menu hambúrguer).
+ * 2. Muda o estilo do cabeçalho ao rolar a página.
+ * 3. Destaca o link do menu de acordo com a seção visível.
+ * 4. Filtra os itens do cardápio quando você clica nos botões (Bebidas Quentes, Geladas, etc.).
+ * 5. Calcula em tempo real se a cafeteria está aberta ou fechada com base na hora atual.
+ * 6. Valida o formulário para impedir envio com campos vazios e exibe alertas animados.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Menu Mobile Toggle
+
+  // ==========================================================================
+  // 1. MENU HAMBÚRGUER (CELULARES E TABLETS)
+  // ==========================================================================
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
 
   if (menuToggle && navMenu) {
+    // Ao clicar no botão hambúrguer, adiciona ou remove a classe "open"
     menuToggle.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', isOpen);
+      
+      // Alterna entre o ícone de três barrinhas e o ícone de "X" para fechar
       menuToggle.innerHTML = isOpen 
         ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>`
         : `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
     });
 
-    // Fechar menu mobile ao clicar em um link
+    // Fecha o menu automaticamente quando o usuário clica em qualquer link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (navMenu.classList.contains('open')) {
@@ -30,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Fechar menu ao clicar fora
+    // Fecha o menu se o usuário clicar em qualquer ponto fora dele
     document.addEventListener('click', (e) => {
       if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('open')) {
         navMenu.classList.remove('open');
@@ -40,7 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Header transparente muda de estilo ao rolar a página
+  // ==========================================================================
+  // 2. HEADER TRANSLÚCIDO DINÂMICO
+  // Ao descer mais de 40px na página, o cabeçalho ganha fundo escuro elegante
+  // ==========================================================================
   const header = document.querySelector('.header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -50,7 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Highlight de link ativo conforme a seção visível
+  // ==========================================================================
+  // 3. DESTAQUE AUTOMÁTICO DO LINK ATIVO AO ROLAR A PÁGINA
+  // (Utiliza a API nativa IntersectionObserver do navegador)
+  // ==========================================================================
   const sections = document.querySelectorAll('section[id]');
   const observerOptions = {
     root: null,
@@ -75,18 +94,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(sec => sectionObserver.observe(sec));
 
-  // 4. Filtro interativo das categorias do cardápio
+  // ==========================================================================
+  // 4. FILTRO DE CATEGORIAS DO CARDÁPIO
+  // Permite clicar em "Cafés Quentes", "Bebidas Geladas" ou "Comidas"
+  // ==========================================================================
   const filterButtons = document.querySelectorAll('.filter-btn');
   const menuCards = document.querySelectorAll('.menu-card');
 
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Atualizar botão ativo
+      // 1. Marca o botão clicado como ativo
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter');
 
+      // 2. Mostra ou oculta os cartões correspondentes com transição suave
       menuCards.forEach(card => {
         const category = card.getAttribute('data-category');
         if (filterValue === 'all' || category === filterValue) {
@@ -106,14 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Verificação em tempo real do status de funcionamento
+  // ==========================================================================
+  // 5. STATUS EM TEMPO REAL: "ABERTO AGORA" OU "FECHADO AGORA"
+  // Regra: Aberto de Terça a Domingo, das 08:00 às 20:00 (Segunda é fechado)
+  // ==========================================================================
   const statusBadge = document.getElementById('storeStatusBadge');
   if (statusBadge) {
     const now = new Date();
     const day = now.getDay(); // 0 = Domingo, 1 = Segunda, 2 = Terça, ..., 6 = Sábado
     const hour = now.getHours();
 
-    // Aberto de Terça a Domingo das 08h às 20h (Segunda é 1 = Fechado)
     const isOpen = day !== 1 && hour >= 8 && hour < 20;
 
     if (isOpen) {
@@ -125,20 +150,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 6. Validação e Envio do Formulário de Contato / Reserva
+  // ==========================================================================
+  // 6. VALIDAÇÃO DO FORMULÁRIO DE CONTATO / RESERVA
+  // Garante que campos obrigatórios (Nome, E-mail/Telefone, Mensagem) não fiquem vazios
+  // ==========================================================================
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+      e.preventDefault(); // Impede o recarregamento padrão da página
 
       const nameInput = document.getElementById('userName');
       const contactInput = document.getElementById('userContact');
-      const serviceSelect = document.getElementById('userService');
       const messageInput = document.getElementById('userMessage');
 
       let isValid = true;
 
-      // Validação do Nome
+      // 1. Validação do Nome (mínimo 3 caracteres)
       if (!nameInput.value.trim() || nameInput.value.trim().length < 3) {
         showFieldError(nameInput, 'Por favor, informe seu nome completo.');
         isValid = false;
@@ -146,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearFieldError(nameInput);
       }
 
-      // Validação do Contato (E-mail ou Telefone)
+      // 2. Validação do Contato (deve ser e-mail válido ou telefone com no mínimo 8 dígitos)
       const contactVal = contactInput.value.trim();
       const isEmail = /\S+@\S+\.\S+/.test(contactVal);
       const isPhone = contactVal.replace(/\D/g, '').length >= 8;
@@ -158,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearFieldError(contactInput);
       }
 
-      // Validação da Mensagem
+      // 3. Validação da Mensagem (mínimo 5 caracteres)
       if (!messageInput.value.trim() || messageInput.value.trim().length < 5) {
         showFieldError(messageInput, 'Por favor, escreva uma mensagem ou os detalhes de sua reserva.');
         isValid = false;
@@ -166,28 +193,31 @@ document.addEventListener('DOMContentLoaded', () => {
         clearFieldError(messageInput);
       }
 
+      // Se tudo estiver preenchido corretamente, simula o envio com sucesso
       if (isValid) {
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
-          <svg class="animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
             <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
             <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
           </svg> Enviando...`;
 
+        // Simula tempo de resposta do servidor (1.2 segundos)
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           contactForm.reset();
 
+          // Exibe notificação de confirmação elegante
           showToast('Mensagem enviada com sucesso!', 'Recebemos seu contato e responderemos em breve com muito carinho.');
         }, 1200);
       }
     });
 
-    // Limpar erro ao digitar
+    // Remove a mensagem de erro assim que o usuário começa a digitar no campo
     ['userName', 'userContact', 'userMessage'].forEach(id => {
       const input = document.getElementById(id);
       if (input) {
@@ -196,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Função auxiliar para exibir o erro no campo
   function showFieldError(input, msg) {
     input.classList.add('is-invalid');
     const feedback = input.parentElement.parentElement.querySelector('.error-feedback');
@@ -205,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Função auxiliar para limpar o erro
   function clearFieldError(input) {
     input.classList.remove('is-invalid');
     const feedback = input.parentElement.parentElement.querySelector('.error-feedback');
@@ -213,7 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 7. Sistema de Toast Notifications
+  // ==========================================================================
+  // 7. SISTEMA DE NOTIFICAÇÃO TOAST (FEEDBACK VISUAL MODERNO)
+  // ==========================================================================
   function showToast(title, message) {
     let container = document.querySelector('.toast-container');
     if (!container) {
@@ -243,20 +277,23 @@ document.addEventListener('DOMContentLoaded', () => {
       toast.classList.add('show');
     });
 
-    // Remover após 4.5s
+    // Remove automaticamente após 4.5 segundos
     setTimeout(() => {
       toast.classList.remove('show');
       setTimeout(() => toast.remove(), 400);
     }, 4500);
   }
 
-  // Interatividade para o botão "Pedir" dos itens do cardápio
+  // ==========================================================================
+  // 8. BOTÃO "ESCOLHER" NOS ITENS DO CARDÁPIO
+  // Dá um feedback simpático ao usuário ao clicar em qualquer item
+  // ==========================================================================
   const orderButtons = document.querySelectorAll('.order-btn-pill');
   orderButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       const card = e.target.closest('.menu-card');
       const itemName = card.querySelector('.menu-item-title').textContent;
-      showToast('Item selecionado!', `"${itemName}" adicionado ao seu pedido. Mostre ao atendente na cafeteria!`);
+      showToast('Item Selecionado!', `"${itemName}" foi registrado. Mostre ao nosso atendente na sua visita!`);
     });
   });
 });
